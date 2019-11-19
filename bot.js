@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const BOT_TOKEN = "NjQyOTEwNDUxNDYxNTIxNDUx.XdMrRA.R0ZETsnZ2hHuEZDlGvwOioCNB0E";
-const bot = new Discord.Client({ disableEveryone: true });
+const client = new Discord.Client({ disableEveryone: true });
 const superagent = require("superagent");
 const randomPuppy = require("random-puppy");
 const ms = require("ms");
@@ -10,12 +10,12 @@ const { stripIndents } = require("common-tags")
 const dateFormat = require("dateformat")
 const fortnite = require("simple-fortnite-api"), client = new fortnite("a95f9cb9-1eb6-447b-aa25-eded02520f8a")
 
-bot.on("ready", async () => {
+client.on("ready", async () => {
     console.log(`${bot.user.username} is online`)
     bot.user.setActivity("Hello", { type: "WATCHING" });
 });
 
-bot.on("message", async message => {
+client.on("message", async message => {
     if (message.author.bot || message.channel.type === "dm") return;
 
     let messageArray = message.content.split(" ");
@@ -513,4 +513,4 @@ bot.on("message", async message => {
     }
 
 });
-bot.login(process.env.BOT_TOKEN);//where BOT_TOKEN is the token of our bot 
+client.login(process.env.BOT_TOKEN);//where BOT_TOKEN is the token of our bot 
